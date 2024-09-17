@@ -24,6 +24,14 @@ public class UserController {
 
 
         try {
+           usuarioBuscado =userService.find();
+            User user1 = userService.saveUser(user);
+            if (usuarioBuscado == null){
+                User user1 = userService.saveoUpdate(user);
+            }else {
+
+            }
+
             User user1 = userService.saveUser(user);
 
             return new ResponseEntity<>(user1, HttpStatus.CREATED);

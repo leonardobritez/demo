@@ -4,12 +4,14 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 
 @Entity
-public class User {
+@Table(name = "BiceUser")
+public class User extends  Auditable{
 
 
     @Getter
