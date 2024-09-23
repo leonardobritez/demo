@@ -1,18 +1,16 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.Phone;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PhoneService {
+public interface PhoneService {
+    Iterable<Phone> listAllPhones();
 
-    @Autowired
-    private PhoneRepository phoneRepository;
+    Phone getPhoneById(Integer id);
 
-    public Phone savePhone(Phone phone) {
-        return phoneRepository.save(phone);
-    }
+    Phone savePhone(Phone phone);
 
-    // Otros métodos de servicio según sea necesario
+    void deletePhone(Integer id);
+
 }

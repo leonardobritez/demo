@@ -1,10 +1,12 @@
 package com.example.demo.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.io.Serializable;
+
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,11 +28,28 @@ public class User extends  Auditable{
     @Column
     private String name;
 
+    @Setter
+    @Getter
     @Column
+    @Pattern(regexp = "^[a-zA-Z]+@dominio\\.cl$", message = "Correo electrónico no válido")
     private String email;
 
     @Column
     private String password;
+
+    @Setter
+    @Getter
+    @Column(name = "lastLogin")
+    private java.time.LocalDateTime lastLogin;
+
+    @Setter
+    @Getter
+    @Column(name = "token")
+    private String token;
+
+    @Setter
+    @Getter
+    private Boolean isActive;
 
     @Setter
     @Getter

@@ -1,18 +1,19 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.Phone;
 import com.example.demo.entity.User;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.http.ResponseEntity;
 
-@Service
-public class UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+public interface UserService {
 
-    public User saveUser(User user) {
-        return userRepository.save(user);
-    }
+    Iterable<User> listAllUsers();
+
+    User getUserById(Integer id);
+
+    User saveUser(User user);
+
+    void deleteUser(Integer id);
+
+    public ResponseEntity registrarUsuario(User user);
 
 }
